@@ -5,5 +5,5 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="API_KEY">AIzaSyAqJy0RRfxuhFwmeCIjSwTLN9O7mOXuiX8</string>
     <string name="DEFAULT_NOTIFICATION_CHANNEL_ID">StatusNotificationChannel</string>
-    <string name="SERVER_KEY">AAAA33_jrnA:APA91bGVfCm5-MmhOaLjQnVlrsNaRK5hxeu7_LyWaYvgxTGm8lKi7KXx3MKz4H1DlWKhX3MB1j0uaYvyXRksiAUnVYAYt_TQYukU7ObVNWG_UBKGu-ChRABVrA27y3c0HYDSpv_KvEKp</string>
+    <string name="SERVER_KEY">/*ENTER SERVER KEY HERE*/</string>
 </resources>
