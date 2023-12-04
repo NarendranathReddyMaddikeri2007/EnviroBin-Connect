@@ -20,8 +20,15 @@ The Smart Waste Truck Location Tracking System is an IoT-based solution for trac
 - Firebase Realtime Database
 - Kotlin (Android App Development)
 
-## Screenshots
-Include screenshots or GIFs showcasing the user interface and functionality of the Android App.
+## Image Previews 🖼️
+
+| Customer Locations on Map | Register Page |
+| --- | --- |
+| ![Customer Locations on Map](https://github.com/NarendranathReddyMaddikeri2007/EnviroBin-Connect/assets/93245481/899597e5-cb9f-4fac-81a0-cd3e96961c47) | ![Register Page](https://github.com/NarendranathReddyMaddikeri2007/EnviroBin-Connect/assets/93245481/6e7f3f9b-a3b4-4f67-915d-11e50e6e0127) |
+
+| Login Page | Truck Locations on Map |
+| --- | --- |
+| ![Login Page](https://github.com/NarendranathReddyMaddikeri2007/EnviroBin-Connect/assets/93245481/1dd86756-5e7a-4ba0-9fc4-bbcfbac59ab6) | ![Truck Locations on Map](https://github.com/NarendranathReddyMaddikeri2007/EnviroBin-Connect/assets/93245481/5cb91f4e-f575-43e1-9611-8aecfade69d2) |
 
 ## Usage (How to Use Project Repository)
 1. Clone the repository to your local machine.
