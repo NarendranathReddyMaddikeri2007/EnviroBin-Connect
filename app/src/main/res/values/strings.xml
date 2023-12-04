@@ -3,7 +3,7 @@
     <string name="login">Login</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="API_KEY">AIzaSyAqJy0RRfxuhFwmeCIjSwTLN9O7mOXuiX8</string>
+    <string name="API_KEY">/*GOOGLE MAP API KEY HERE*/</string>
     <string name="DEFAULT_NOTIFICATION_CHANNEL_ID">StatusNotificationChannel</string>
-    <string name="SERVER_KEY">/*ENTER SERVER KEY HERE*/</string>
+    <string name="SERVER_KEY">/*FIREBASE SERVER KEY HERE*/</string>
 </resources>
