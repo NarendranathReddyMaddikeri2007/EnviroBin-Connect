@@ -23,7 +23,6 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 
-
 class RegisterActivity : AppCompatActivity(), TokenCallback {
 
     private lateinit var firebaseAuth: FirebaseAuth

@@ -161,7 +161,6 @@ class MainActivity : AppCompatActivity() {
             callback.onLocationResult(null)
         }
     }
-
     fun openProfile(username : String){
         alerts.sendAlertDialog(
             title = "Profile",

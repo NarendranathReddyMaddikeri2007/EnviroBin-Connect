@@ -64,7 +64,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         })
     }
-
     override fun onDestroy() {
         super.onDestroy()
     }
