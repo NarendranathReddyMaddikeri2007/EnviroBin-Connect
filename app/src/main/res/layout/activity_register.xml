@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.RegisterActivity"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:gravity="center"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:src="@drawable/signupbanner">
+    </ImageView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etEmailLayout_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="Email"
+        app:hintTextColor="@color/hintColor"
+        app:startIconDrawable="@drawable/ic_baseline_email_24"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:startIconTint="@color/lightgreen"
+
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etEmail_register"
+            android:textColor="@color/lightgreen"
+            android:backgroundTint="@color/lightgreen"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPasswordLayout_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="Password"
+        app:hintTextColor="@color/hintColor"
+        app:startIconDrawable="@drawable/ic_baseline_email_24"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:startIconTint="@color/lightgreen"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/lightgreen"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etPassword_register"
+            android:textColor="@color/lightgreen"
+            android:backgroundTint="@color/lightgreen"
+            app:startIconTint="@color/lightgreen"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etConfirmPasswordLayout_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="Conform Password"
+        app:hintTextColor="@color/hintColor"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:startIconTint="@color/lightgreen"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/lightgreen"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etConfirmPassword_register"
+            android:textColor="@color/lightgreen"
+            android:backgroundTint="@color/lightgreen"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/groupradio_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_margin="5dp"
+        >
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/groupradio_register_rb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="House Holder"
+            android:textColor="@color/lightgreen"
+            android:textSize="15sp"
+            android:buttonTint="@color/lightgreen"
+            android:checked="true"
+            android:fontFamily="@font/belleza"
+            />
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/groupradio_register_rb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Municipal Officer"
+            android:textColor="@color/lightgreen"
+            android:textSize="15sp"
+            android:buttonTint="@color/lightgreen"
+            android:fontFamily="@font/belleza"
+            />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="250dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/gradient"
+        android:backgroundTint="@color/darkgreen"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/gotoregister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/belleza"
+        android:gravity="center"
+        android:onClick="gotoRLogin"
+        android:text="Old user? Login Now"
+        android:textColor="@color/lightgreen"
+        android:clickable="true"
+        android:focusable="true"
+        android:textSize="15dp" />
+<!--
+    <TextView
+        android:id="@+id/gotoforgetpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/belleza"
+        android:onClick="gotoRegister"
+        android:text="Forgot password?"
+        android:textColor="#FF0000"
+        android:clickable="true"
+        android:focusable="true"
+        android:textSize="15dp" />
+        -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/belleza"
+        android:gravity="center"
+        android:text="--------------------  or Register with  --------------------"
+        android:textColor="@color/lightgreen"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/loginfacebook"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="5dp"
+            android:src="@drawable/facebook"/>
+
+        <ImageView
+            android:id="@+id/logingoogle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="5dp"
+            android:src="@drawable/google"
+            android:layout_marginLeft="15dp"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

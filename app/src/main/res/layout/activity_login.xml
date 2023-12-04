@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.LoginActivity"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:src="@drawable/signinbanner">
+    </ImageView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etEmailLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="Email"
+        app:hintTextColor="@color/hintColor"
+        app:startIconDrawable="@drawable/ic_baseline_email_24"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:startIconTint="@color/lightgreen"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etEmail"
+            android:textColor="@color/lightgreen"
+            android:backgroundTint="@color/lightgreen"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPasswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="Password"
+        app:hintTextColor="@color/hintColor"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:startIconTint="@color/lightgreen"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/lightgreen"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etPassword"
+            android:textColor="@color/lightgreen"
+            android:backgroundTint="@color/lightgreen"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/groupradio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_margin="5dp"
+        >
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/groupradio_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="House Holder"
+            android:textColor="@color/lightgreen"
+            android:textSize="15sp"
+            android:buttonTint="@color/lightgreen"
+            android:checked="true"
+            android:fontFamily="@font/belleza"
+            />
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/groupradio_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Municipal Officer"
+            android:textColor="@color/lightgreen"
+            android:textSize="15sp"
+            android:buttonTint="@color/lightgreen"
+            android:fontFamily="@font/belleza"
+            />
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/gradient"
+        />
+
+    <TextView
+        android:id="@+id/gotoregister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/belleza"
+        android:gravity="center"
+        android:onClick="gotoRegister"
+        android:text="New user? Register Now"
+        android:textColor="@color/lightgreen"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/gotoforgetpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/belleza"
+        android:gravity="center"
+        android:onClick="gotoRegister"
+        android:text="Forgot password?"
+        android:textColor="#FF0000"
+        android:clickable="true"
+        android:focusable="true"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/belleza"
+        android:text="--------------------  or Login with  --------------------"
+        android:textColor="@color/lightgreen"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/loginfacebook"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="5dp"
+            android:src="@drawable/facebook"/>
+
+        <ImageView
+            android:id="@+id/logingoogle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="5dp"
+            android:src="@drawable/google"
+            android:layout_marginLeft="15dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>
