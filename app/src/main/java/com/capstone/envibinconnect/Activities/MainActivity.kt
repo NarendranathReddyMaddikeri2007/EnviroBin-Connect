@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         if(intent!=null && intent.hasExtra("key1") && intent.extras!=null){
             for(key : String in intent.extras?.keySet()!!){
                  if(key!=null){
-                     println("\n\n------------FIREBASE CLOUD MESSAGING -> INTENT EXTRA IS ${intent.extras!!.getString(key)} -----------\n\n")
+                     Log.d(TAG,"FIREBASE CLOUD MESSAGING -> INTENT EXTRA IS ${intent.extras!!.getString(key)}")
                  }
             }
         }
@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         } else {
-            Toast.makeText(this, "Location not enabled", Toast.LENGTH_SHORT).show()
+            alerts.sendSnackbar("Location not enabled",binding.root)
             callback.onLocationResult(null)
         }
     }
@@ -211,7 +211,7 @@ class MainActivity : AppCompatActivity() {
 
             }
             else{
-                Toast.makeText(this@MainActivity,"Permissions Denied", Toast.LENGTH_SHORT).show()
+                alerts.sendSnackbar("Permissions Denied",binding.root)
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -238,23 +238,23 @@ class MainActivity : AppCompatActivity() {
             call.enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                     if (response.isSuccessful) {
-                        println("Notification sent successfully to $email")
+                        Log.d(TAG,"Notification sent successfully to ${email}")
                         Log.d(TAG, "MainActivity.kt : sendNotification() : message sent SUCCESSFUL")
                     } else {
                         Log.d(TAG, "MainActivity.kt : sendNotification() : message sent FAILED")
-                        println("Failed to send notification to $email. Response code: ${response.code()}")
+                        Log.d(TAG,"Failed to send notification to $email. Response code: ${response.code()}")
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                    println("Error while sending notification: ${t.message}")
+                    Log.d(TAG,"Error while sending notification: ${t.message}")
                     Log.d(TAG, "MainActivity.kt : sendNotification() : message sent FAILED : ${t.message}")
 
                 }
             })
             return true
         } catch (e: Exception) {
-            println("Error while sending notification: ${e.message}")
+            Log.d(TAG,"Error while sending notification: ${e.message}")
             Log.d(TAG, "MainActivity.kt : sendNotification() : Catch : message sent FAILED")
         }
         return false

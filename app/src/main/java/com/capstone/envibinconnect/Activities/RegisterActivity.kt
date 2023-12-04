@@ -33,7 +33,6 @@ class RegisterActivity : AppCompatActivity(), TokenCallback {
     private lateinit var sharedpreferences :SharedPreferences
     val fcmToken = FCMToken()
     private lateinit var alert : GiveAlert
-
     companion object{
         const val TAG = "RegisterActivity"
     }
@@ -66,7 +65,6 @@ class RegisterActivity : AppCompatActivity(), TokenCallback {
                     if (id!=-1 && id!=null){
                         radioButton = findViewById(id)
                     }
-
                     val user = radioButton?.text
                     var result = ""
                     if(user!=null && user?.equals("House Holder") == true && isGmail(email)==true){
@@ -83,7 +81,6 @@ class RegisterActivity : AppCompatActivity(), TokenCallback {
                         )
                         result = "manager"
                     }
-
                     firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
                         if(it.isSuccessful){
                             saveEmail(email,password)

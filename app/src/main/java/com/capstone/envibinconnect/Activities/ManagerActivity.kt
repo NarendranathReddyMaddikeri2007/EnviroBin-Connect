@@ -73,14 +73,10 @@ class ManagerActivity : AppCompatActivity(), NotificationListener, onRequestAcce
             override fun onCancelled(e: DatabaseError) {
                 //Handle Errors
                 Log.d(TAG,"ERROR ManagerActivity.kt/trackDataChanges()/onCancelled()")
-                print(e)
-                print("\n/--------------------/\n")
-                e.details
-                print("\n/--------------------/\n")
-                e.message
-                print("\n/--------------------/\n")
-                e.toString()
-                print("\n\n/---------------------ERROR---------------------/\n\n")
+                Log.d(TAG,"error is ${e}")
+                Log.d(TAG,"error details are ${e.details}")
+                Log.d(TAG,"error message is ${e.message}")
+                Log.d(TAG,"error is ${e.toString()}")
             }
 
         })

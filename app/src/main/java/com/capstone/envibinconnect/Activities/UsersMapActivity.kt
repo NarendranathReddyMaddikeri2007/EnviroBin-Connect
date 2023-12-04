@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.capstone.envibinconnect.R
@@ -28,6 +29,9 @@ class UsersMapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var gMap : GoogleMap
     lateinit var API_KEY : String
     private lateinit var databaseReference: DatabaseReference
+    companion object{
+        const val TAG = "UsersMapActivity"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,13 +55,10 @@ class UsersMapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
             override fun onCancelled(e: DatabaseError) {
                 // Handle database error
-                print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-                println("Handle database error")
-                print("\n~~~~~~~~~~~~~ e-> BELOW ~~~~~~~~~~~~~\\\n")
-                print(e)
-                print("\n~~~~~~~~~~~~~ e.message-> BELOW ~~~~~~~~~~~~~\n")
-                print(e.message)
-                print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+                Log.d(TAG,"UsersMapActivity/onMapReady()/databaseReference.addValueEventListener()/onCancelled()")
+                Log.d(TAG,"error is ${e}")
+                Log.d(TAG,"error details are ${e.details}")
+                Log.d(TAG,"error message is ${e.message}")
             }
         })
     }

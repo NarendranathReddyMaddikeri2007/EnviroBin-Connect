@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.capstone.envibinconnect.R
@@ -27,11 +28,10 @@ import com.google.firebase.database.ValueEventListener
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var gMap : GoogleMap
     lateinit var API_KEY : String
-
-
-    //FIREBASE
     private lateinit var databaseReference: DatabaseReference
-
+    companion object{
+        const val TAG = "MapActivity"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,13 +57,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             }
             override fun onCancelled(e: DatabaseError) {
                 // Handle database error
-                print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-                println("Handle database error")
-                print("\n~~~~~~~~~~~~~ e-> BELOW ~~~~~~~~~~~~~\\\n")
-                print(e)
-                print("\n~~~~~~~~~~~~~ e.message-> BELOW ~~~~~~~~~~~~~\n")
-                print(e.message)
-                print("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+                Log.d(TAG,"MapActivity/onMapReady()/databaseReference.addValueEventListener()/onCancelled()")
+                Log.d(TAG,"error is ${e}")
+                Log.d(TAG,"error details are ${e.details}")
+                Log.d(TAG,"error message is ${e.message}")
             }
         })
     }
@@ -79,14 +76,12 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 for (placeSnapshot in snapshot.children) {
                     val latitude = placeSnapshot.child("latitude").value as Double
                     val longitude = placeSnapshot.child("longitude").value as Double
-
                     val location = LatLng(latitude, longitude)
                     gMap.addMarker(MarkerOptions().position(location).title(placeSnapshot.key))
                         ?.setIcon(bitmapFromVector(this@MapActivity,
                             R.drawable.baseline_directions_bus_24
                         ))
                 }
-
                 // Use builder to set padding for markers
                 for (placeSnapshot in snapshot.children) {
                     val latitude = placeSnapshot.child("latitude").value as Double

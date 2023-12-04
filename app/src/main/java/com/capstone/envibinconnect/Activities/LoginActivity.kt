@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.envibinconnect.Interfaces.TokenCallback
 import com.capstone.envibinconnect.Others.FCMToken
+import com.capstone.envibinconnect.Others.GiveAlert
 import com.capstone.envibinconnect.databinding.ActivityLoginBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -28,7 +29,13 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var collectionReference : CollectionReference
     private lateinit var binding: ActivityLoginBinding
     private lateinit var sharedpreferences : SharedPreferences
+    private lateinit var alerts : GiveAlert
     val fcmToken = FCMToken()
+
+
+    companion object{
+        const val TAG = "LoginActivity"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
+        alerts = GiveAlert(this@LoginActivity)
         sharedpreferences = this@LoginActivity.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         setFirebase()
         onButtonClicks()
@@ -64,25 +72,24 @@ class LoginActivity : AppCompatActivity() {
                 if(!result.isNullOrEmpty()){
                     firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener{
                         if(it.isSuccessful){
-                            //----------------------------------------------------------------------
                             fcmToken.getClientToken(object : TokenCallback {
                                 override fun onTokenReceived(token: String) {
                                     val TOKEN = hashMapOf("token" to "${token}","timestamp" to FieldValue.serverTimestamp())
                                     val documentReference = collectionReference.document("${email}")
                                     documentReference.update(TOKEN)
                                         .addOnSuccessListener {
-                                            println("\n\n\n TOKEN UPDATED INTO FIRESTORE DATABASE SUCCESSFULLY\n\n")
+                                            Log.d(TAG,"TOKEN UPDATED INTO FIRESTORE DATABASE SUCCESSFULLY")
                                         }
                                         .addOnFailureListener {
-                                            println("\n\n\n TOKEN UPDATING INTO FIRESTORE DATABASE FAILED\n\n")
+                                            Log.d(TAG,"TOKEN UPDATING INTO FIRESTORE DATABASE FAILED")
                                         }
                                 }
                                 override fun onTokenFailed() {
-                                    println("\n\n\nToken retrieval failed & data inserting into firestore failed\n\n\n")
+                                    Log.d(TAG,"Token retrieval failed & data inserting into firestore failed")
                                 }
                             })
                             //----------------------------------------------------------------------
-                            Toast.makeText(this, "Successfully Sign-In!!", Toast.LENGTH_SHORT).show()
+                            alerts.sendSnackbar("Successfully Sign-In!!",binding.root)
                             saveEmail(email = email, password = password)
                             if(result.equals("client")==true){
                                 saveUserType(result)
@@ -99,16 +106,16 @@ class LoginActivity : AppCompatActivity() {
                         }
                         else{
                             Log.e("error: ", it.exception.toString())
-                            println("\n\n------------------- LOGIN FAILED DURING AUTHORIZATION1 -------------------\n\n")
+                            Log.d(TAG,"LOGIN FAILED DURING AUTHORIZATION1")
                         }
                     }
                 }
                 else{
-                    Toast.makeText(this@LoginActivity,"Select wrong input",Toast.LENGTH_SHORT).show()
+                    alerts.sendSnackbar("Selected wrong input",binding.root)
                 }
             }
             else{
-                println("\n\n------------------- LOGIN FAILED DURING AUTHORIZATION1 -------------------\n\n")
+                Log.d(TAG,"LOGIN FAILED DURING AUTHORIZATION1")
             }
         }
     }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -16,10 +17,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashScreenActivity : AppCompatActivity() {
-
-
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var sharedpreferences : SharedPreferences
+
+    companion object{
+        const val TAG = "SplashScreenActivity"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,7 @@ class SplashScreenActivity : AppCompatActivity() {
         if(intent!=null && intent.hasExtra("key1") && intent.extras!=null){
             for(key : String in intent.extras?.keySet()!!){
                 if(key!=null){
-                    println("\n\n------------FIREBASE CLOUD MESSAGING -> INTENT EXTRA IS ${intent.extras!!.getString(key)} -----------\n\n")
+                    Log.d(TAG,"FIREBASE CLOUD MESSAGING -> INTENT EXTRA IS ${intent.extras!!.getString(key)}")
                 }
             }
         }
